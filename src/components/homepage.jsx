@@ -1,11 +1,11 @@
 import React from 'react'
-
-import Feature from './feature'
 import "../App.css"
 
-
+import Feature from './feature'
 import Hero from './hero'
 import WhoWeAre from './whoWeAre'
+import Identity from './identity'
+import News from './news'
 
 export default function Homepage() {
   return (
@@ -13,6 +13,8 @@ export default function Homepage() {
     <Hero/>
     <Feature/>
     <WhoWeAre/>
+    <Identity/>
+    <News/>
    </div>
   
   )
