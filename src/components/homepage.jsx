@@ -6,6 +6,8 @@ import Hero from './hero'
 import WhoWeAre from './whoWeAre'
 import Identity from './identity'
 import News from './news'
+import Resources from './resources'
+import ContactUs from './contactUs'
 
 export default function Homepage() {
   return (
@@ -15,6 +17,8 @@ export default function Homepage() {
     <WhoWeAre/>
     <Identity/>
     <News/>
+    <Resources/>
+    <ContactUs/>
    </div>
   
   )
