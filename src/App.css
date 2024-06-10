@@ -790,11 +790,118 @@ textarea::-webkit-scrollbar {
 }
 
 
+/* ++ +========================================================  FOOTER   ==================================================*/
+
+.footer{
+  width: 100%;
+  max-width: 1440px;
+  height: 574px;
+  background-color: red;
+}
+
+.footer-group{
+  width: 1440px;
+  height: 480px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.footer-wrapper{
+  width: 1111px;
+  height: 214.42px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-company{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.footer-logo{
+  width: 237px;
+  height: 71px;
+}
+
+.footer-description p{
+  width: 304px;
+  height: 63px;
+  font-size: 14px;
+  line-height: 21px;
+  color: rgba(255, 255, 255, 1);
+}
 
 
+.social-media{
+  width: 140px;
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
 
+.footer-content{
+  width: 470px;
+  height: 172px;
+  gap: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
 
+.footer-section.links{
+ width: 73px;
+ gap: 16px;
+ display: flex;
+ flex-direction: column;
+}
 
+.footer-section.footerresources{
+  width: 134px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-section.work{
+  width: 103px;
+  height: 150px;
+  gap: 16px;
+  display: flex;
+  flex-direction: column;
+;
+}
+.footer-section h3 {
+  width: 120px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: #a0c4ff;
+}
 
 
 @media (max-width: 1024px) {

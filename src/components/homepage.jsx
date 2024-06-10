@@ -8,6 +8,7 @@ import Identity from './identity'
 import News from './news'
 import Resources from './resources'
 import ContactUs from './contactUs'
+import Footer from './footer'
 
 export default function Homepage() {
   return (
@@ -19,6 +20,7 @@ export default function Homepage() {
     <News/>
     <Resources/>
     <ContactUs/>
+    <Footer/>
    </div>
   
   )
