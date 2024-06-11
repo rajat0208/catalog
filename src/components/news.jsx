@@ -3,20 +3,17 @@ import axios from 'axios'
 
 import "../App.css"
 import { FaArrowRight } from "react-icons/fa6";
-// import News1 from "../assets/news1.jpeg";
-// import News2 from "../assets/news2.jpeg";
-// import News3 from "../assets/news3.jpeg";
-// import News4 from "../assets/news4.jpeg";
-// import News5 from "../assets/news5.jpeg";
-// import News6 from "../assets/news6.jpeg";
+
 
 
 export default function News() {
 
     const [news,setNews]=useState([]);
     const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
     const [displayedNewsCount, setDisplayedNewsCount] = useState(6);
     const [showAllNews, setShowAllNews] = useState(false);
+    const [expandedHeight, setExpandedHeight] = useState(false);
     const newsRef = useRef(null);
 
     useEffect(()=>{
@@ -55,6 +52,7 @@ export default function News() {
     }, []);
 
     const handleViewAllNews = () => {
+        console.log("shwo news")
         setDisplayedNewsCount(news.length);
         setShowAllNews(true);
     };
@@ -63,9 +61,16 @@ export default function News() {
         return <p>Loading news...</p>;
     }
 
+    if (error) {
+        return <p>Error fetching news: {error}</p>;
+    }
 
+
+    if (!Array.isArray(news)) {
+        return <p>No news available.</p>;
+    }
     return (
-        <div className='news'>
+        <div className={`news ${expandedHeight ? 'expanded' : ''}`}>
             <div className='wrapper'>
                 <h2>News</h2>
                 <p> We aim to stop public funds siphoning off and we have a plan that will help. We are working at the national and EU levels to advance.</p>
@@ -85,12 +90,10 @@ export default function News() {
                                     </div>
                                 </div>
                             </div>
-                        ))
-                      (
-                        <p>No news article available</p>
-                    )}
-                </div>
-                {displayedNewsCount < news.length && (
+                      
+                    ))}
+                </div>          
+                {!showAllNews && (
                     <div className='viewAllNews' onClick={handleViewAllNews}>
                         <p>View all News</p>
                     </div>

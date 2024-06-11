@@ -452,10 +452,14 @@ p {
 
 .news {
   max-width: 1440px;
-  height: 1353px;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: height 0.3s ease; 
+}
+
+.news.expanded {
+  height: auto; 
 }
 
 .wrapper {
@@ -487,7 +491,6 @@ p {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  overflow: hidden;
   position: relative;
 }
 
@@ -576,6 +579,7 @@ p {
   border: 1px solid rgba(29, 111, 163, 1);
   padding-top: 10px;
   gap: 10px;
+  cursor: pointer;
 }
 
 .viewAllNews p {
