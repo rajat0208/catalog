@@ -520,18 +520,47 @@ p {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
-
-.frame {
-  width: 100%;
-  max-width: 1157px;
-  height: 40px;
-  gap: 65px;
+.slider{
+  width: 1120px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  align-items: center;
+  padding-left: 40px;
+  padding-right: 40px;
 }
+.frame {
+  width: 100%;
+  max-width: 1157px;
+  gap: 30px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.arrow-left {
+  left: 8px;
+}
+
+.arrow-right {
+  right: 10px;
+}
+
+.slider {
+  display: flex;
+  transition: transform 0.5s ease-in-out; 
+}
+
 
 .identity-logo {
   width: 114px;
@@ -542,6 +571,7 @@ p {
   align-items: center;
   justify-content: center;
   text-align: center;
+  flex: 0 0 auto;
 }
 
 .logoMark {
@@ -1235,10 +1265,11 @@ textarea::-webkit-scrollbar {
       height: 258.96px;
       text-align: center;
     }
-  
-    .image-container img {
-      height: 600px;
+    .image-container img{
+      height: 800px;
+ 
     }
+    
     .see-more{
       width: 400px;
     }
@@ -1375,6 +1406,57 @@ textarea::-webkit-scrollbar {
   right: 0;
   background: linear-gradient(to left, rgba(255, 255, 255, 1), rgba(255, 255, 255, 0));
 }
+.whoWeAre {
+  flex-direction: column;
+
+  height: 200px;
+  padding: 0px;
+  height: auto;
+  justify-content: center;
+  align-items: center;
+}
+
+.whoWeAre-content {
+  height: 200px;
+  text-align: center;
+}
+.whoWeAre-heading{
+height: 150px;
+}
+.whoWeAre-heading h2 {
+  font-size: 20px;
+}
+
+.whoWeAre-heading p {
+  width: 400px;
+  font-size: 12px;
+  line-height: 19px;
+  text-align: center;
+}
+
+.whoWeAre-images {
+  height: auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.column1, .column2 {
+  height: 600px;
+  margin-top: 0;
+}
+
+.image-container {
+  height: 258.96px;
+  text-align: center;
+}
+.image-container img{
+  height: 800px;
+
+}
+.see-more{
+  width: 400px;
+}
+
   }
 
   @media (max-width: 320px){
@@ -1445,6 +1527,76 @@ display: none;
     height: 40px;
     font-size: 12px;
   }
+  .whoWeAre {
+    flex-direction: column;
+    height: 200px;
+    padding: 0px;
+    height: auto;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .whoWeAre-content {
+    height: 200px;
+    text-align: center;
+  }
+  .whoWeAre-heading{
+  height: 220px;
+  }
+  .whoWeAre-heading h2 {
+    font-size: 20px;
+  }
+  
+  .whoWeAre-heading p {
+    width: 250px;
+    font-size: 12px;
+    line-height: 19px;
+    text-align: justify;
+  }
+  
+  .whoWeAre-images {
+    margin-top: 20px;
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .column1, .column2 {
+    width: 200px;
+    height: 600px;
+    margin-top: 0;
+  }
+  
+  .image-container {
+    height: 258.96px;
+    text-align: center;
+  }
+  .image-container img{
+    height: 800px;
+  
+  }
+  .see-more{
+    width: 380px;
+  }
 
- 
+  .arrow{
+    font-size: 12px;
+  }
+  .slider{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  .identity-logo {
+    width: 120px; /* Adjust size for smaller screens */
+  }
+
+  .logoMark {
+    width: 25px;
+    height: 25px;
+  }
+
+  .logoType p {
+    font-size: 14px;
+  }
+
   }

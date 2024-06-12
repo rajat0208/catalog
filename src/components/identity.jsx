@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useRef} from 'react'
 import "../App.css"
 import Layers from "../assets/layers.png"
 import Quotient from "../assets/quotient.png"
@@ -9,10 +9,25 @@ import { FaAnglesLeft } from "react-icons/fa6";
 import { FaAnglesRight } from "react-icons/fa6";
 
 export default function Identity() {
+    const sliderRef = useRef(null);
+
+    const scrollLeft = () => {
+        if (sliderRef.current) {
+            sliderRef.current.scrollLeft -= 200; 
+        }
+    };
+
+    const scrollRight = () => {
+        if (sliderRef.current) {
+            sliderRef.current.scrollLeft += 200; 
+        }
+    };
+
     return (
         <div className='identity'>
             <div className='frame'>
-                <FaAnglesLeft />
+            <FaAnglesLeft className="arrow arrow-left" onClick={scrollLeft} />
+            <div className='slider' ref={sliderRef}>
                 <div className='identity-logo'>
                     <img src={Layers} className='logoMark'></img>
                     <div className='logoType'>
@@ -43,7 +58,8 @@ export default function Identity() {
                         <p>Hourglass</p>
                     </div>
                 </div>
-                <FaAnglesRight />
+                </div>
+                <FaAnglesRight className="arrow arrow-right" onClick={scrollRight} />
             </div>
         </div>
     )
