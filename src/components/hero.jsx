@@ -10,30 +10,36 @@ import "../App.css"
 
 export default function Hero() {
     const [showDropdown, setShowDropdown] = useState(false);
+    const [showSearchBar, setShowSearchbar] =useState(false)
     const dropdownRef = useRef(null);
+    const searchRef= useRef(null);
 
     const toggleDropdown = () => {
         setShowDropdown(!showDropdown)
     }
 
-    const handleClickOutside = (event) =>{
+    const toggleSearch=()=>{
+        setShowSearchbar(!showSearchBar)
+    } 
+
+   const handleClickOutside = (event) =>{
         if (dropdownRef.current && !dropdownRef.current.contains(event.target)){
             setShowDropdown(false);
+        }
+
+        if(searchRef.current && !searchRef.current.contains(event.target)){
+            setShowSearchbar(false);
         }
     }
 
     useEffect(()=>{
-        if (showDropdown){
-            document.addEventListener('mousedown',handleClickOutside)
-        }
-        else{
-            document.removeEventListener('mousedown',handleClickOutside)
-        }
+        document.addEventListener('mousedown', handleClickOutside);
 
-        return ()=>{
-            document.removeEventListener('mousedown',handleClickOutside);
-        }
-    },[showDropdown])
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    },[])
+
     return (
         <div className='hero'>
             <div className='hero-overlay'></div>
@@ -56,16 +62,16 @@ export default function Hero() {
                                             <div className='dropdown-content'>
                                                 <a href='#'>           
                                                     <div className='dropdown'>
-                                                    <FiBook  className="dropdown-icon" size={36} color='rgba(0, 41, 83, 0.8)' />
+                                                    <FiBook  className="dropdown-icon2" size={36} color='rgba(0, 41, 83, 0.8)' />
                                                     <div className='dropdown-info'>
                                                         <h3>Blog</h3>
-                                                        <p>The latest industry, news, update and info</p>
+                                                        <p>The latest industry, news, update and info.</p>
                                                     </div>
                                                     </div>
                                                 </a>
                                                 <a href='#'>           
                                                     <div className='dropdown'>
-                                                    <AiOutlineThunderbolt  className="dropdown-icon" size={36} color='rgba(0, 41, 83, 0.8)' />
+                                                    <AiOutlineThunderbolt  className="dropdown-icon2" size={36} color='rgba(0, 41, 83, 0.8)' />
                                                     <div className='dropdown-info'>
                                                         <h3>Customer Stories</h3>
                                                         <p>Learn how our customers are making big changes.</p>
@@ -74,7 +80,7 @@ export default function Hero() {
                                                 </a>
                                                 <a href='#'>           
                                                     <div className='dropdown'>
-                                                    <IoPlayCircleOutline className="dropdown-icon" size={36} color='rgba(0, 41, 83, 0.8)' />
+                                                    <IoPlayCircleOutline className="dropdown-icon2" size={36} color='rgba(0, 41, 83, 0.8)' />
                                                     <div className='dropdown-info'>
                                                         <h3>Video Tutorials</h3>
                                                         <p>Get up and running on new fetaures and techniques.</p>
@@ -87,7 +93,12 @@ export default function Hero() {
                                 </ul>
                             </div>
                             <div className='search'>
-                                <CiSearch size={23} color='white' />
+                                <button className='search-btn' onClick={toggleSearch}><CiSearch size={18} color='white' /></button>
+                                {showSearchBar && (
+                                    <div className='search-bar' ref={searchRef}>
+                                        <input type="text" placeholder="Search..." />
+                                    </div>
+                                )}
                             </div>
                         </div>
 
@@ -96,15 +107,17 @@ export default function Hero() {
             </div>
             <div className='hero-container'>
                 <div className='hero-content'>
+           
                     <div className='heading-and-supportive-text'>
                         <div className='heading-and-badge'>
+                       
                             <h1>Beautiful Analytics To Grow Smarter</h1>
                         </div>
                         <p>Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.</p>
                     </div>
                     <div className='action'>
                         <div className='button'>
-                            <button className='catalog-btn'>Why Catalog<FaArrowRight size={20} /></button>
+                            <button className='catalog-btn'>Why Catalog<FaArrowRight className="catalog-icon"size={20} /></button>
                         </div>
                     </div>
                 </div>
