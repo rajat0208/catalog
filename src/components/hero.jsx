@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Logo from "../assets/logo.png"
 import { IoIosArrowDown } from "react-icons/io";
 import { CiSearch } from "react-icons/ci";
@@ -10,10 +10,30 @@ import "../App.css"
 
 export default function Hero() {
     const [showDropdown, setShowDropdown] = useState(false);
+    const dropdownRef = useRef(null);
 
     const toggleDropdown = () => {
         setShowDropdown(!showDropdown)
     }
+
+    const handleClickOutside = (event) =>{
+        if (dropdownRef.current && !dropdownRef.current.contains(event.target)){
+            setShowDropdown(false);
+        }
+    }
+
+    useEffect(()=>{
+        if (showDropdown){
+            document.addEventListener('mousedown',handleClickOutside)
+        }
+        else{
+            document.removeEventListener('mousedown',handleClickOutside)
+        }
+
+        return ()=>{
+            document.removeEventListener('mousedown',handleClickOutside);
+        }
+    },[showDropdown])
     return (
         <div className='hero'>
             <div className='hero-overlay'></div>
@@ -30,7 +50,8 @@ export default function Hero() {
                                     <li><a href='#home'>Home</a></li>
                                     <li><a href='#about-us'>About Us</a></li>
                                     <li><a href='#case-studies'>Case studies</a></li>
-                                    <li><a href='#resource' onClick={toggleDropdown} className='resource'>Resources <IoIosArrowDown className="dropdown-icon" size={20} /></a>
+                                    <li ref={dropdownRef}>
+                                        <a href='#resource' onClick={toggleDropdown} className='resource'>Resources <IoIosArrowDown className="dropdown-icon" size={20} /></a>
                                         {showDropdown && (
                                             <div className='dropdown-content'>
                                                 <a href='#'>           
