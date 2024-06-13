@@ -941,6 +941,7 @@ textarea::-webkit-scrollbar {
   flex-direction: row;
   align-items: center;
   justify-content: center;
+  align-self: center;
   background-color: rgba(255, 255, 255, 0.1);
   color: rgba(29, 111, 163, 1);
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -958,6 +959,7 @@ textarea::-webkit-scrollbar {
   transform: scale(1.05);
   box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.2);
 }
+
 
 
 /* ++ +========================================================  FOOTER   ==================================================*/
@@ -1972,6 +1974,24 @@ textarea::-webkit-scrollbar {
     height: 24px;
     margin-right: 10px;
   }
+  .sweet-alert-container {
+    width: 90%; /* Adjust maximum width as needed */
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.sweet-alert-popup {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.sweet-alert-confirm-button {
+    width: 100%;
+    padding: 0.5rem;
+    box-sizing: border-box;
+    margin-top: 0.5rem;
+}
 
 
 }

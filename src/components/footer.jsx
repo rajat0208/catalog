@@ -9,13 +9,14 @@ import { FaArrowUp } from "react-icons/fa6";
 
 
 export default function Footer() {
-    console.log('Scrolling to top');
+    
     const scrollToTop = () => {
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
     };
+    
     return (
         <div className='footer'>
             <div className='footer-group'>
@@ -66,9 +67,9 @@ export default function Footer() {
                     <p>Terms and Conditions</p>
                     <img src={CC}></img>
                 </div>
-                <div className='scroll-to-top' onClick={scrollToTop}>
+                <button className='scroll-to-top' onClick={scrollToTop}>
                     <FaArrowUp color='grey' />
-                </div>
+                </button>
             </div>
         </div>
     )
