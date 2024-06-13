@@ -13,16 +13,21 @@ export default function Identity() {
 
     const scrollLeft = () => {
         if (sliderRef.current) {
-            sliderRef.current.scrollLeft -= 200; 
+            sliderRef.current.scrollBy({
+                left: -200, 
+                behavior: 'smooth'
+            });
         }
     };
 
     const scrollRight = () => {
         if (sliderRef.current) {
-            sliderRef.current.scrollLeft += 200; 
+            sliderRef.current.scrollBy({
+                left: 200, 
+                behavior: 'smooth'
+            });
         }
     };
-
     return (
         <div className='identity'>
             <div className='frame'>

@@ -27,9 +27,9 @@ export default function Footer() {
                             <p>We are a collaboration of non-government organisation and professionals working to ensure that government spending. </p>
                         </div>
                         <div className='social-media'>
-                            <AiFillTwitterCircle size={36} color='white' />
-                            <FaLinkedin size={36} color='white' />
-                            <BsYoutube size={36} color='white' />
+                            <AiFillTwitterCircle size={36} className='social-media' color='white' />
+                            <FaLinkedin size={36} className='social-media'  color='white' />
+                            <BsYoutube size={36} className='social-media'  color='white' />
                         </div>
                     </div>
                     <div className='footer-content'>
