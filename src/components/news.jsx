@@ -17,7 +17,7 @@ export default function News() {
     const newsRef = useRef(null);
 
     useEffect(()=>{
-        axios.get("https://raw.githubusercontent.com/younginnovations/internship-challenges/master/front-end/news_list.json")
+        axios.get(import.meta.env.VITE_API_URL)
         .then(response =>{
             console.log('Fetched data:', response.data);
             setNews(response.data.news || [])
